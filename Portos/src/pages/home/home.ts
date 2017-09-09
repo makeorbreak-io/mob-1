@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { NavController, AlertController , NavParams , ModalController , LoadingController , ToastController } from 'ionic-angular';
 
 import { SendMoneyPage, FirstSC, CustomPopup } from '../pages';
@@ -6,6 +7,12 @@ import { Storage } from '@ionic/storage';
 
 import { Api } from '../api/shared';
 
+=======
+import { NavController , NavParams , ModalController , LoadingController , ToastController } from 'ionic-angular';
+import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
+
+import { FirstSC, CustomPopup } from '../pages';
+>>>>>>> 2de6464394106c18403bd9d90dce79415a80e057
 
 @Component({
   selector: 'page-home',
@@ -14,7 +21,6 @@ import { Api } from '../api/shared';
 export class HomePage {
 
   constructor(private navCtrl: NavController,
-              private alertCtrl: AlertController,
               private navParams: NavParams,
               private modalCtrl: ModalController,
               private load: LoadingController,
