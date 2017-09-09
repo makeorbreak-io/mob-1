@@ -27,37 +27,43 @@
   <br>
   <br>
 
-<ion-list>
-    <ion-item>
-        <ion-label color="primary" stacked>Your Name</ion-label>
-        <ion-input type="text" placeholder="Name"></ion-input>
-      </ion-item>
-    <ion-item>
-        <ion-label color="primary" stacked>Your Email</ion-label>
-        <ion-input type="email" placeholder="Email Input"></ion-input>
-      </ion-item>     
-</ion-list>
+  <form (ngSubmit)="register()">
 
-  <ion-row>
-    <ion-col width-20 style="text-align: center">
+    <ion-list>
+        <ion-item>
+            <ion-label color="primary" stacked>Your Name</ion-label>
+            <ion-input type="text"  [(ngModel)]="user.name" name="name" placeholder="Name"></ion-input>
+          </ion-item>
+        <ion-item>
+            <ion-label color="primary" stacked>Your Email</ion-label>
+            <ion-input type="email" required  [(ngModel)]="user.email" name="email" placeholder="Email Input">
+          </ion-input>
+          </ion-item>     
+    </ion-list>
 
-      <br>
-        <!--Register Button -->
-    <button round outline ion-button large>
-        <tr>
-          <div>        
-            <td>
-              <ion-img  src="assets/img/aloquete.png" style="align-items: center; width: 1px; height: 1px;"></ion-img> 
-            </td>
-          </div>
-        
-          <td>
-          <b>Register</b>
-          </td>
-      </button>
-      <!-- Register Button -->
-    </ion-col>
-  </ion-row>
+      <ion-row>
+        <ion-col width-20 style="text-align: center">
+
+          <br>
+            <!--Register Button -->
+        <button round outline ion-button large>
+            <tr>
+              <div>        
+                <td>
+                  <ion-img  src="assets/img/aloquete.png" style="align-items: center; width: 1px; height: 1px;"></ion-img> 
+                </td>
+              </div>
+            
+              <td>
+              <b> &#160;Register</b>
+              </td>
+          </button>
+          <!-- Register Button -->
+
+        </ion-col>
+      </ion-row>
+
+  </form>
 
 
 

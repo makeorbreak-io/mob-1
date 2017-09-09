@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController  } from 'ionic-angular';
+import { NavController, AlertController , NavParams } from 'ionic-angular';
 
 import { SendMoneyPage, FirstSC } from '../pages';
 
@@ -9,19 +9,24 @@ import { SendMoneyPage, FirstSC } from '../pages';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController,
-              public alertCtrl: AlertController) {
-
+  constructor(private navCtrl: NavController,
+              private alertCtrl: AlertController,
+              private navParams: NavParams) {
 
   }
 
   ionViewWillEnter()
 {
-  this.navCtrl.push(FirstSC);
+
+  console.log(this.navParams.data);
+
+  if(this.navParams.data.email === undefined){
+      this.navCtrl.push(FirstSC);
+    }
+ 
 }
 
-  SendMoney()
-  {
+  SendMoney(){
 
   }
 
