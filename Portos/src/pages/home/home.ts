@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController  } from 'ionic-angular';
 
-import { SendMoneyPage } from '../pages';
+import { SendMoneyPage, FirstSC } from '../pages';
 
 @Component({
   selector: 'page-home',
@@ -15,9 +15,9 @@ export class HomePage {
 
   }
 
-ionViewDidLoad()
+  ionViewWillEnter()
 {
-  
+  this.navCtrl.push(FirstSC);
 }
 
   SendMoney()
