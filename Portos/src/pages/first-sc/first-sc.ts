@@ -36,7 +36,9 @@ ionViewDidLoad(){
 
 }
 
-  register(){
+  code: any;
+
+  async register(){
     // send to database the user.name and the user.email and give them a coin for good mesure.
     // TODO: if data is ok save it in sql lite
     
@@ -50,23 +52,38 @@ ionViewDidLoad(){
       let pass = this.loginForm.get("pass").value;
       let name =  this.loginForm.get("name").value;
   
-      var code = this.api.createAccount(email , pass)
-        .then((data) => console.log(data));
+       this.api.createAccount(email , pass)
+        .then((data) =>{
+
+          this.code = data;
+
+          // this looks fine
+          // console.log('DATA',data);
+           console.log('Code',this.code);
+
+           this.storage.set('publicKey',  this.code).then(x => x);
+           this.storage.set('userName', name).then(x => x);
+           this.storage.set('email', email).then(x => x);
+
+        });
   
-      //console.log(code);
-      console.log(code);
-        
-      this.storage.set('publicKey',  JSON.stringify(code));
-      this.storage.set('userName', name);
-      this.storage.set('email', email);
-  
+      this.storage.get("publicKey").then(d => console.log('then ->',d));
+
+      sleep(3000);
       loader.dismiss();
 
-      this.navCtrl.push(HomePage,  {email : email, user : name } );
+      this.navCtrl.push(HomePage,  {email : email, user : name , code: this.code } );
     
     });
     
-
-
+    function sleep(milliseconds) {
+      var start = new Date().getTime();
+      for (var i = 0; i < 1e7; i++) {
+        if ((new Date().getTime() - start) > milliseconds){
+          break;
+        }
+      }
+    }
   }
+
 }

@@ -4,6 +4,8 @@ import { NavController, AlertController , NavParams , ModalController , LoadingC
 import { SendMoneyPage, FirstSC, CustomPopup } from '../pages';
 import { Storage } from '@ionic/storage';
 
+import { Api } from '../api/shared';
+
 
 @Component({
   selector: 'page-home',
@@ -17,38 +19,57 @@ export class HomePage {
               private modalCtrl: ModalController,
               private load: LoadingController,
               private toastCtrl: ToastController,
-              private storage: Storage) {
+              private storage: Storage,
+              private api: Api) {
 
   }
 
 
+  data :any;
+  myBalance:any;
+  flag = false;
   ionViewWillEnter()
 {
 
   let loader = this.load.create({
     content: '<b> Loading Data... </b>'
   });
+  sleep(1500);
   
   loader.present().then(() => {
-
-    var data = this.storage.get("publicKey");
+   
+    this.getpublicKey().then(o => {
+      
+      console.log(o);
+      if(o === undefined || o == null)
+      {
+        this.navCtrl.push(FirstSC);
+      }
         
-    //console.log(data);
+      this.api.getMyBalance(o).then(x => {
+        this.myBalance = x;
+       });
+  
+    });
 
-        if(data === undefined)
-        {
-          this.navCtrl.push(FirstSC);
-        }
-
-      loader.dismiss();
+    loader.dismiss();
+    
   });
-
-
-  if(this.navParams.data.email === undefined){
-      this.navCtrl.push(FirstSC);
-    } 
- 
+  
+  function sleep(milliseconds) {
+    var start = new Date().getTime();
+    for (var i = 0; i < 1e7; i++) {
+      if ((new Date().getTime() - start) > milliseconds){
+        break;
+      }
+    }
+  }
 }
+
+ async getpublicKey()
+ {
+   return await this.storage.get("publicKey");
+ }
 
 requestTokens(){
 
@@ -65,6 +86,7 @@ requestTokens(){
     modal.present();  
 
 }
+
 
 
   SendByAddress(){

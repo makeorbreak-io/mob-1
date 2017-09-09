@@ -10,8 +10,8 @@ export class Api{
         
     }
 
-    createAccount(email, pass){
-        return new Promise(resolve => 
+    async  createAccount(email, pass){
+         return await new Promise(resolve => 
         {
             this.http.get("http://portoscoins.azurewebsites.net/api/Portos?email="+email+"&password="+pass)
             .subscribe(res => resolve(res.json()),
@@ -27,8 +27,8 @@ export class Api{
         });
     }
 
-    getMyBalance(key){
-        return new Promise(resolve => 
+    async  getMyBalance(key){
+        return await new Promise(resolve => 
             {
                 this.http.get("http://portoscoins.azurewebsites.net/api/Portos?accountId=" + key)
                 .subscribe(res => resolve(res.json()));
