@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController , NavParams , ModalController , LoadingController , ToastController } from 'ionic-angular';
+import { NavController , NavParams , ModalController , LoadingController , ToastController } from 'ionic-angular';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 
-import { SendMoneyPage, FirstSC, CustomPopup } from '../pages';
+import { FirstSC, CustomPopup } from '../pages';
 
 @Component({
   selector: 'page-home',
@@ -11,7 +11,6 @@ import { SendMoneyPage, FirstSC, CustomPopup } from '../pages';
 export class HomePage {
 
   constructor(private navCtrl: NavController,
-              private alertCtrl: AlertController,
               private navParams: NavParams,
               private modalCtrl: ModalController,
               private load: LoadingController,

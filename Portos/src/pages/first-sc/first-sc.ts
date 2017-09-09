@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController , ToastController   } from 'ionic-angular';
+import { NavController , ToastController   } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 
 
-import { SendMoneyPage, HomePage } from '../pages';
+import { HomePage } from '../pages';
 
 @Component({
   selector: 'first-sc',
@@ -15,7 +15,6 @@ export class FirstSC {
   private loginForm : FormGroup;
 
   constructor(private navCtrl: NavController,
-              private alertCtrl: AlertController,
               private formBuilder: FormBuilder,
               private sqlite: SQLite,
               private toastCtrl: ToastController) {

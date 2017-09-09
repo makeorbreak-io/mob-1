@@ -12,7 +12,7 @@ import { SendMoneyPage, FirstSC , CustomPopup } from '../pages/pages';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
+import { SQLite } from '@ionic-native/sqlite';
 
 @NgModule({
   declarations: [

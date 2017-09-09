@@ -1,7 +1,7 @@
 import { Component, Renderer } from '@angular/core';
 import {  ViewController } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-import { HTTP } from '@ionic-native/http';
+
 
 
 @Component({
@@ -14,8 +14,8 @@ export class CustomPopup {
 
   constructor(public renderer: Renderer, 
               public viewCtrl: ViewController,
-              public barcodeScanner: BarcodeScanner,
-              private http: HTTP) {
+              public barcodeScanner: BarcodeScanner
+              ) {
     this.renderer.setElementClass(viewCtrl.pageRef().nativeElement, 'custom-popup', true);
 
   }
@@ -30,21 +30,5 @@ export class CustomPopup {
      }, (err) => {
          // An error occurred
      });
-  }
-
-  getQR(code){
-    var url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+code;
-
-    this.http.get(url, {}, {})
-    .then(data => {
-    var qr = data.data; // data received by server
-  
-    })
-    .catch(error => {
-  
-      var qrerror = error.error; // error message as string
-  
-    });
-    
   }
 }
