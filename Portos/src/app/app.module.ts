@@ -8,7 +8,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
-import { SendMoneyPage, FirstSC } from '../pages/pages';
+import { SendMoneyPage, FirstSC , CustomPopup } from '../pages/pages';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -20,7 +20,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     TabsPage,
     FirstSC,
-    SendMoneyPage
+    SendMoneyPage,
+    CustomPopup
   ],
   imports: [
     BrowserModule,
@@ -34,12 +35,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     TabsPage,
     FirstSC,
-    SendMoneyPage
+    SendMoneyPage,
+    CustomPopup
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
+  ],
+  exports:[
   ]
+
 })
 export class AppModule {}
+

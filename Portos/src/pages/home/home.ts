@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController , NavParams } from 'ionic-angular';
+import { NavController, AlertController , NavParams , ModalController} from 'ionic-angular';
 
-import { SendMoneyPage, FirstSC } from '../pages';
+import { SendMoneyPage, FirstSC, CustomPopup } from '../pages';
 
 @Component({
   selector: 'page-home',
@@ -11,7 +11,8 @@ export class HomePage {
 
   constructor(private navCtrl: NavController,
               private alertCtrl: AlertController,
-              private navParams: NavParams) {
+              private navParams: NavParams,
+              private modalCtrl: ModalController) {
 
   }
 
@@ -24,6 +25,13 @@ export class HomePage {
       this.navCtrl.push(FirstSC);
     }
  
+}
+
+requestTokens(){
+
+    let modal = this.modalCtrl.create(CustomPopup,{},{showBackdrop:true, enableBackdropDismiss:true});
+    modal.present();  
+
 }
 
   SendMoney(){
