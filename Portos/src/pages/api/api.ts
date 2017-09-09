@@ -5,9 +5,6 @@ import {  ToastController   } from 'ionic-angular';
 @Injectable()
 export class Api{
 
-    /**
-     *
-     */
     constructor(private http : Http,
                 private toastCtrl: ToastController) {
         
@@ -16,7 +13,7 @@ export class Api{
     createAccount(email, pass){
         return new Promise(resolve => 
         {
-            this.http.get("http://http://portoscoins.azurewebsites.net/api/Portos?email="+email+"&password="+pass)
+            this.http.get("http://portoscoins.azurewebsites.net/api/Portos?email="+email+"&password="+pass)
             .subscribe(res => resolve(res.json()),
             error=>{
                 this.toastCtrl.create({

@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController , ToastController   } from 'ionic-angular';
+import { NavController, AlertController , ToastController , LoadingController  } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 
+import { Api } from '../api/shared';
 
-import { SendMoneyPage, HomePage } from '../pages';
+import { Storage } from '@ionic/storage';
+
+import { SendMoneyPage, HomePage} from '../pages';
 
 @Component({
   selector: 'first-sc',
@@ -17,8 +19,10 @@ export class FirstSC {
   constructor(private navCtrl: NavController,
               private alertCtrl: AlertController,
               private formBuilder: FormBuilder,
-              private sqlite: SQLite,
-              private toastCtrl: ToastController) {
+              private storage: Storage,
+              private toastCtrl: ToastController,
+              private api : Api,
+              private loadCtrl: LoadingController) {
 
                 this.loginForm = this.formBuilder.group({
                   name: ['', [Validators.required]],
@@ -32,34 +36,36 @@ ionViewDidLoad(){
 
 }
 
-
   register(){
     // send to database the user.name and the user.email and give them a coin for good mesure.
     // TODO: if data is ok save it in sql lite
     
-    console.log(this.loginForm);
-    this.navCtrl.push(HomePage,  {email : this.loginForm.get("email").value, user : this.loginForm.get("name").value } );
-
-    this.sqlite.create({
-      name: 'data.db',
-      location: 'default'
-    })
-      .then((db: SQLiteObject) => {
+    let loader = this.loadCtrl.create({
+      content: '<b> Loading Data... </b>'
+    });
     
-        db.executeSql('create table dados(name VARCHAR(250))', {})
-          .then(() => 
-            this.toastCtrl.create({
-              message: 'Created Database!',
-              duration: 3000,
-              position: 'bottom'
-            }).present())
+    loader.present().then(() => {
+  
+      let email = this.loginForm.get("email").value;
+      let pass = this.loginForm.get("pass").value;
+      let name =  this.loginForm.get("name").value;
+  
+      var code = this.api.createAccount(email , pass)
+        .then((data) => console.log(data));
+  
+      //console.log(code);
+      console.log(code);
+        
+      this.storage.set('publicKey',  JSON.stringify(code));
+      this.storage.set('userName', name);
+      this.storage.set('email', email);
+  
+      loader.dismiss();
 
-          .catch(e => console.log(e));
+      this.navCtrl.push(HomePage,  {email : email, user : name } );
     
-      })
-      .catch(e => console.log(e));
-
-//Http call to http://portoscoins.azurewebsites.net with email and pass 
+    });
+    
 
 
   }
