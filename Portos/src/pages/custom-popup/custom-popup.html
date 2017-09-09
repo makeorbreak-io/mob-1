@@ -4,17 +4,15 @@
                 
             <h2 color="primary"> <b>Request Type</b></h2>
             <div class="content" >
-                <button round outline ion-button color="primary">
-                        QR Code
-                </button>
+                <button round outline ion-button color="primary" (click)="scanQR()">QR Code</button>
                 <br>
-                <button round outline ion-button color="primary">
-                        NFC
-                </button>
+                <button round outline ion-button color="primary">NFC</button>
                 <br>                
-                <button round outline ion-button color="primary">
-                        Address
-                </button>
+                <button round outline ion-button color="primary" (click)="getQR('testeabcd')">Address</button>
+
+                <div *ngIf="qr">
+
+                </div>
             </div>
         </div>
 </div>
