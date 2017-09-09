@@ -1,6 +1,6 @@
     
 
-<ion-content padding>
+<ion-content class="homePage"padding>
  
   <ion-row>
     <ion-col align="center">
@@ -13,8 +13,8 @@
     <ion-col align="center">  
         
           <ion-label color="primary" stacked>Your Current Balance:</ion-label>
-          <font size="40">100.00</font>
-          <ion-img  src="assets/img/logocurrency.png"></ion-img>
+          <span class="specialone">100.00 </span>
+         <img height="20" src="assets/img/logocurrency.png">
       
    </ion-col>
   </ion-row>
@@ -29,12 +29,12 @@
         <tr>
           <div>        
             <td>
-              <ion-img  src="assets/img/logogeral.png" style="align-items: center"></ion-img> 
+              <img height="25"  src="assets/img/logogeral.png" style="align-items: center"> 
             </td>
           </div>
         
           <td>
-          <b> &#160;Request</b>
+          <b>&#160;Request</b>
           </td>
       </button>
       <!-- Request Button -->
@@ -44,7 +44,7 @@
           <tr>
             <div>        
               <td>
-                <ion-img  src="assets/img/logogeral.png" style="align-items: center"></ion-img> 
+                <img height="25" src="assets/img/logogeral.png"> 
               </td>
             </div>
           
@@ -56,11 +56,11 @@
         <br>
         
       <!-- Address Button -->
-      <button round outline ion-button>
+      <button round outline ion-button (click)="SendByAddress()">
           <tr>
             <div>        
               <td>
-                <ion-img  src="assets/img/logoqr.png" style="align-items: center"></ion-img> 
+                <img height="50"  src="assets/img/logoqr.png"> 
               </td>
             </div>
           
@@ -76,7 +76,7 @@
           <tr>
             <div>        
               <td>
-                <ion-img  src="assets/img/buy.png" style="align-items: center"></ion-img> 
+                <img  height="25" src="assets/img/buy.png"> 
               </td>
             </div>
           

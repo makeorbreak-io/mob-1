@@ -27,16 +27,17 @@
   <br>
   <br>
 
-  <form (ngSubmit)="register()">
+
+  <form [formGroup]="loginForm" (ngSubmit)="register()">
 
     <ion-list>
         <ion-item>
             <ion-label color="primary" stacked>Your Name</ion-label>
-            <ion-input type="text"  [(ngModel)]="user.name" name="name" placeholder="Name"></ion-input>
+            <ion-input type="text" formControlName="name" placeholder="Name"></ion-input>
           </ion-item>
         <ion-item>
             <ion-label color="primary" stacked>Your Email</ion-label>
-            <ion-input type="email" required  [(ngModel)]="user.email" name="email" placeholder="Email Input">
+            <ion-input type="email" formControlName="email" placeholder="Email Input">
           </ion-input>
           </ion-item>     
     </ion-list>
@@ -46,11 +47,11 @@
 
           <br>
             <!--Register Button -->
-        <button round outline ion-button large>
+        <button type="submit" [disabled]="!loginForm.valid" round outline ion-button large>
             <tr>
               <div>        
                 <td>
-                  <ion-img  src="assets/img/aloquete.png" style="align-items: center; width: 1px; height: 1px;"></ion-img> 
+                  <img height="20" src="assets/img/aloquete.png">
                 </td>
               </div>
             

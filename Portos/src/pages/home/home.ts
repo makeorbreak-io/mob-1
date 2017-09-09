@@ -23,47 +23,34 @@ export class HomePage {
 
   if(this.navParams.data.email === undefined){
       this.navCtrl.push(FirstSC);
-    }
+    } 
  
 }
 
 requestTokens(){
 
-    let modal = this.modalCtrl.create(CustomPopup,{},{showBackdrop:true, enableBackdropDismiss:true});
+    let modal = this.modalCtrl.create(CustomPopup,
+      {
+        
+      },
+      {
+        showBackdrop:true, 
+        enableBackdropDismiss:true
+
+      });
+
     modal.present();  
 
 }
 
-  SendMoney(){
 
-  }
+  SendByAddress(){
+    // Get the others address 
+    // Get money to be sent
+    // Confirm
+    // $_$
+    
 
-  BuyMoney()
-  {
-
-    let confirm = this.alertCtrl.create({
-      
-      title: 'Do you want to Support this ideia?',
-      message: 'Portos',
-      
-      buttons: [
-        {
-          
-          text: 'Disagree',
-          handler: () => {
-            console.log('Disagree clicked');
-          }
-        },
-        {
-          text: 'Agree',
-          handler: () => {
-            console.log('Agree clicked');
-          }
-        }
-      ]
-    });
-
-    confirm.present();
   }
 
 }

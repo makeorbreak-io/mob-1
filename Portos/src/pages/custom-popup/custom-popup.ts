@@ -15,4 +15,7 @@ export class CustomPopup {
 
   }
 
+  popOut(){
+    this.viewCtrl.dismiss();
+  }
 }

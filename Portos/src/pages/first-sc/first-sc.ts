@@ -10,11 +10,16 @@ import { SendMoneyPage, HomePage } from '../pages';
 })
 export class FirstSC {
 
-  user = {};
+  private loginForm : FormGroup;
 
-  constructor(public navCtrl: NavController,
-              public alertCtrl: AlertController) {
+  constructor(private navCtrl: NavController,
+              private alertCtrl: AlertController,
+              private formBuilder: FormBuilder) {
 
+                this.loginForm = this.formBuilder.group({
+                  name: ['', [Validators.required]],
+                  email:['', [ Validators.required, Validators.email]]
+                });
 
   }
 
@@ -27,7 +32,7 @@ ionViewDidLoad(){
     // send to database the user.name and the user.email and give them a coin for good mesure.
     // TODO: if data is ok save it in sql lite
     
-    console.log(this.user);
-    this.navCtrl.push(HomePage, this.user);
+    console.log(this.loginForm);
+    this.navCtrl.push(HomePage,  {email : this.loginForm.get("email").value, user : this.loginForm.get("name").value } );
   }
 }

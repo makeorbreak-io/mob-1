@@ -1,3 +1,20 @@
-<button ion-button>
-    Hi There!
-</button>
+<div>
+        <div class="popup" >
+                <a (click)="popOut()">&times;</a>            
+                
+            <h2 color="primary"> <b>Request Type</b></h2>
+            <div class="content" >
+                <button round outline ion-button color="primary">
+                        QR Code
+                </button>
+                <br>
+                <button round outline ion-button color="primary">
+                        NFC
+                </button>
+                <br>                
+                <button round outline ion-button color="primary">
+                        Address
+                </button>
+            </div>
+        </div>
+</div>
