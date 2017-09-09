@@ -24,20 +24,21 @@
         </ion-col>
       </ion-row>
 
-  <br>
-  <br>
-
-
   <form [formGroup]="loginForm" (ngSubmit)="register()">
 
     <ion-list>
         <ion-item>
             <ion-label color="primary" stacked>Your Name</ion-label>
-            <ion-input type="text" formControlName="name" placeholder="Name"></ion-input>
+            <ion-input type="text" formControlName="name" placeholder="Your Name"></ion-input>
           </ion-item>
-        <ion-item>
+          <ion-item>
             <ion-label color="primary" stacked>Your Email</ion-label>
             <ion-input type="email" formControlName="email" placeholder="Email Input">
+          </ion-input>
+          </ion-item>    
+          <ion-item>
+            <ion-label color="primary" stacked>Your Password (Don't put a real one, this app is still a prototype)</ion-label>
+            <ion-input type="password" formControlName="pass" placeholder="Password Input">
           </ion-input>
           </ion-item>     
     </ion-list>
