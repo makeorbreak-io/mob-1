@@ -78,7 +78,6 @@
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
     </platform>
     <engine name="android" spec="^6.2.3" />
-    <engine name="ios" spec="^4.5.0" />
     <plugin name="cordova-plugin-advanced-http" spec="^1.5.9" />
     <plugin name="cordova-plugin-console" spec="^1.0.5" />
     <plugin name="cordova-plugin-device" spec="^1.1.4" />
@@ -88,4 +87,5 @@
     <plugin name="cordova-sqlite-storage" spec="^2.0.4" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <plugin name="phonegap-plugin-barcodescanner" spec="^6.0.8" />
+    <engine name="ios" spec="~4.5.0" />
 </widget>

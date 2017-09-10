@@ -1,0 +1,17 @@
+<div>                   
+            <h2 color="primary"> <b>Paste down the Address to send Portos</b></h2>
+            <div class="content" >
+				
+				<form [formGroup]="todo" (ngSubmit)="SendTo()">
+					<ion-item>
+						<ion-label>Address to send</ion-label>
+						<ion-input type="text" formControlName="address"></ion-input>
+					</ion-item>
+					<ion-item>
+						<ion-label>Amount to Send</ion-label>
+						<<ion-input type="int" formControlName="amount"></ion-input>
+					</ion-item>
+					<button ion-button type="submit" [disabled]="!todo.valid">Submit</button>
+				</form>
+        </div>
+</div>

@@ -1,20 +1,15 @@
 import { Component } from '@angular/core';
-<<<<<<< HEAD
+
 import { NavController, AlertController , ToastController , LoadingController  } from 'ionic-angular';
-=======
-import { NavController , ToastController   } from 'ionic-angular';
->>>>>>> 2de6464394106c18403bd9d90dce79415a80e057
+
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Api } from '../api/shared';
 
-<<<<<<< HEAD
 import { Storage } from '@ionic/storage';
 
 import { SendMoneyPage, HomePage} from '../pages';
-=======
-import { HomePage } from '../pages';
->>>>>>> 2de6464394106c18403bd9d90dce79415a80e057
+
 
 @Component({
   selector: 'first-sc',
